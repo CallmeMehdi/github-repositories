@@ -47,12 +47,12 @@ export default function UserContainer(props) {
                 boxShadow={'2xl'}
                 bg={useColorModeValue('white', 'gray.700')}
                 rounded={'xl'}
-                p={10}
+                p={5}
                 minW={['80vw', '80vw', '30vw']}
                 spacing={8}>
                 {
                     users.length ? (
-                        users.map(user => <User user={user}/>)
+                        users.map(user => <div><User user={user}/><hr/></div>)
                     ) : (
                         <Box display="flex" justifyContent="center">There are no users found.</Box>
                     )
