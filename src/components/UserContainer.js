@@ -2,11 +2,12 @@ import {
     Flex,
     Stack,
     useColorModeValue,
+    Box
 } from '@chakra-ui/react';
 import User from './User';
 import axios from 'axios';
 
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
 export default function UserContainer(props) {
 
@@ -23,15 +24,15 @@ export default function UserContainer(props) {
 
     const getUsers = (username) => {
         console.log(username)
-        if(username){
+        if (username) {
             axios.get('https://api.github.com/search/users?q=' + username)
-            .then(res => {
-                console.log(res.data.items)
-                setUsers(res.data.items);
-                updateUsers();
-            })
+                .then(res => {
+                    console.log(res.data.items)
+                    setUsers(res.data.items);
+                    updateUsers();
+                })
         }
-        
+
     }
 
 
@@ -49,10 +50,13 @@ export default function UserContainer(props) {
                 p={10}
                 minW={['80vw', '80vw', '30vw']}
                 spacing={8}>
-                <User/>
-
-                <hr/>
-                <User />
+                {
+                    users.length ? (
+                        users.map(user => <User user={user}/>)
+                    ) : (
+                        <Box display="flex" justifyContent="center">There are no users found.</Box>
+                    )
+                }
             </Stack>
         </Flex>
     );
