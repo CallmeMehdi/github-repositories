@@ -1,3 +1,12 @@
 #active-user{
     background: #F5F5F5!important;
 }
+
+.dot{
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
