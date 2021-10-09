@@ -6,27 +6,55 @@ import {
     Stack,
     Avatar,
     useColorModeValue,
+    Link 
 } from '@chakra-ui/react';
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
 export default function User(props) {
+
+    const [followers, setFollowers] = React.useState(0)
+
+    const [following, setFollowing] = React.useState(0)
+
+
+    useEffect(() => {
+        // Setting up followers variable
+        axios.get(props.user.followers_url)
+            .then(res => {
+                console.log(res.data)
+                // setFollowers(res.data.length);
+            })
+
+        // Setting up following variable
+        axios.get(props.user.following_url)
+            .then(res => {
+                // setFollowing(res.data.length);
+            })
+    }, [])
+
+
     return (
-        <Center mb={4}>
+        <Center style={{transition: "0.4s", cursor: "pointer"}} mb={4} _hover={{
+            background: "#F5F5F5",
+            transition: "0.4s"
+          }}
+          rounded={'md'}>
             <Box
                 maxW={'445px'}
                 w={'full'}
-                bg={useColorModeValue('white', 'gray.900')}
                 // boxShadow={'2xl'}
                 rounded={'md'}
-                // p={6}
+                p={6}
                 overflow={'hidden'}>
                 <Stack direction={'row'} spacing={4} align={'center'}>
                     <Avatar
-                        src={'https://avatars0.githubusercontent.com/u/1164541?v=4'}
+                        src={props.user.avatar_url}
                         alt={'Author'}
                     />
                     <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                        <Text fontWeight={600}>Achim Rolle</Text>
-                        <Text color={'gray.500'}>Feb 08, 2021 · 6min read</Text>
+                    <Link href={props.user.html_url} isExternal><Text fontWeight={600}>{props.user.login}</Text></Link>
+                        <Text color={'gray.500'}>{followers} Followers · {following} Following </Text>
                     </Stack>
                 </Stack>
                 {/* <Stack>

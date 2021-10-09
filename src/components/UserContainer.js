@@ -23,11 +23,9 @@ export default function UserContainer(props) {
     }
 
     const getUsers = (username) => {
-        console.log(username)
         if (username) {
             axios.get('https://api.github.com/search/users?q=' + username)
                 .then(res => {
-                    console.log(res.data.items)
                     setUsers(res.data.items);
                     updateUsers();
                 })
