@@ -46,7 +46,7 @@ export default function RepositoryContainer(props) {
           <div>
         {
           repos.length ? (
-            repos.map(repo => <Repository repo={repo} />)
+            repos.map(repo => <Repository repo={repo}/>)
           ) : (
             <Box display="flex" justifyContent="center">There are no repositories found.</Box>
           )
