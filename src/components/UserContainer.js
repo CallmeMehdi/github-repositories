@@ -33,7 +33,10 @@ export default function UserContainer(props) {
 
     }
 
-
+    const selectUser = (repos_url) => {
+        console.log("selected user")
+        console.log(repos_url)
+    }
 
     return (
         <Flex
@@ -50,7 +53,7 @@ export default function UserContainer(props) {
                 spacing={8}>
                 {
                     users.length ? (
-                        users.map(user => <div><User user={user}/><hr/></div>)
+                        users.map(user => <div onClick={() => { selectUser(user.repos_url)}}><User user={user} onClick={selectUser}/><hr/></div>)
                     ) : (
                         <Box display="flex" justifyContent="center">There are no users found.</Box>
                     )

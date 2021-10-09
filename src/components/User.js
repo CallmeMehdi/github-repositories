@@ -22,14 +22,13 @@ export default function User(props) {
         // Setting up followers variable
         axios.get(props.user.followers_url)
             .then(res => {
-                console.log(res.data)
-                // setFollowers(res.data.length);
+                setFollowers(res.data.length);
             })
 
         // Setting up following variable
         axios.get(props.user.following_url)
             .then(res => {
-                // setFollowing(res.data.length);
+                setFollowing(res.data.length);
             })
     }, [])
 
