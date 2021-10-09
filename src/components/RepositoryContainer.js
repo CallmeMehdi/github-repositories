@@ -23,8 +23,9 @@ export default function RepositoryContainer(props) {
     if (reposUrl) {
       axios.get(reposUrl)
         .then(res => {
+          setRepos(Array.from(res.data).sort((a,b) => (a.updated_at < b.updated_at)?1:-1))
           console.log(res.data)
-          setRepos(res.data);
+          // setRepos(res.data);
         })
     }
   }
