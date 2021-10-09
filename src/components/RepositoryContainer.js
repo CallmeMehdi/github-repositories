@@ -8,9 +8,14 @@ export default function RepositoryContainer(props) {
   const [repos, setRepos] = React.useState([]);
 
   useEffect(() => {
-    console.log("here");
-    getRepos(props.reposUrl);
-  }, [props.reposUrl]);
+
+    if (props.refresh){
+      setRepos([])
+      props.parentCallback()
+    }else{
+      getRepos(props.reposUrl);
+    }
+  }, [props.reposUrl, props.refresh]);
 
   const getRepos = (reposUrl) => {
     if (reposUrl) {
@@ -27,7 +32,7 @@ export default function RepositoryContainer(props) {
   };
 
   return (
-    <Flex style={{height: "90vh"}} py={8} bg="#F5F5F5" mx="auto">
+    <Flex style={{ height: "90vh" }} py={8} bg="#F5F5F5" mx="auto">
       <Stack
         boxShadow={"2xl"}
         bg={useColorModeValue("white", "gray.700")}

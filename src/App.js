@@ -11,22 +11,45 @@ import React, { useState } from "react";
 function App() {
   const [username, setUsername] = useState("");
   const [reposUrl, setReposUrl] = useState("");
+  const [refresh, setRefresh] = useState(0);
 
   const handleCallback = (childData) => {
     setUsername(childData);
   };
 
   const handleReposUrlCallback = (childData) => {
-    console.log("#####");
-    console.log(childData);
     setReposUrl(childData);
   };
+
+  const removeReposUrl = () => {
+    setReposUrl("")
+    setRefresh(1)
+    
+  }
+
+  const removeRefresh = () => {
+    setRefresh(0)
+  }
 
   return (
     <Box p={20}>
       <Box p={20} bg="#F5F5F5" borderRadius="5">
         <ChakraProvider>
-          <SearchInput parentCallback={handleCallback} />
+        <Text
+                m={5}
+                align="center"
+                fontSize="3xl"
+                color="#DE5D83"
+                fontWeight="600"
+                transition="0.4s"
+                _hover={{
+                  color: "#5fd1ba",
+                  transition: "0.4s",
+                }}
+              >
+                GitHub Repositories searcher
+              </Text>
+          <SearchInput parentCallback={handleCallback} removeRepos={removeReposUrl} />
           <Flex
             justify="space-around"
             direction={["column", "column", "row", "row"]}
@@ -66,7 +89,7 @@ function App() {
               >
                 Repositories
               </Text>
-              <RepositoryContainer reposUrl={reposUrl} />
+              <RepositoryContainer reposUrl={reposUrl} refresh={refresh} parentCallback={removeRefresh} />
             </Flex>
           </Flex>
         </ChakraProvider>

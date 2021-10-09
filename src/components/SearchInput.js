@@ -13,8 +13,13 @@ import React from "react";
 export default function SearchInput(props) {
   const [value, setValue] = React.useState("");
   const handleChange = (event) => {
+
+    // Remove active user when search new
     if (document.querySelector("#active-user"))
       document.querySelector("#active-user").removeAttribute("id");
+
+    //Remove current repositories when searching
+    props.removeRepos();
     setValue(event.target.value);
   };
 
