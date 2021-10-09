@@ -12,7 +12,11 @@ import React from "react";
 
 export default function SearchInput(props) {
   const [value, setValue] = React.useState("");
-  const handleChange = (event) => setValue(event.target.value);
+  const handleChange = (event) => {
+    if (document.querySelector("#active-user"))
+      document.querySelector("#active-user").removeAttribute("id");
+    setValue(event.target.value);
+  };
 
   const updateUsername = () => {
     props.parentCallback(value);
