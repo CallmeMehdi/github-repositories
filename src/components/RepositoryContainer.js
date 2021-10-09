@@ -2,24 +2,29 @@ import {
   Flex,
   Stack,
   useColorModeValue,
+  Box
 } from '@chakra-ui/react';
 import axios from 'axios';
+import Repository from './Repository';
 
 import React, { useEffect } from "react";
 
-export default function RepositoryContainer(reposUrl) {
+export default function RepositoryContainer(props) {
 
   const [repos, setRepos] = React.useState([])
 
+  useEffect(() => {
+    console.log("here")
+    getRepos(props.reposUrl);
+  }, [props.reposUrl]);
 
 
-
-
-  const getRepos = (username) => {
-    if (username) {
+  const getRepos = (reposUrl) => {
+    if (reposUrl) {
       axios.get(reposUrl)
         .then(res => {
-          setRepos(res.data.items);
+          console.log(res.data)
+          setRepos(res.data);
         })
     }
   }
@@ -37,7 +42,16 @@ export default function RepositoryContainer(reposUrl) {
         p={10}
         minW={['80vw', '80vw', '50vw']}
         spacing={8}
-        align={'center'}>
+        overflowY={'auto'}>
+          <div>
+        {
+          repos.length ? (
+            repos.map(repo => <Repository repo={repo} />)
+          ) : (
+            <Box display="flex" justifyContent="center">There are no repositories found.</Box>
+          )
+        }
+        </div>
       </Stack>
     </Flex>
   );

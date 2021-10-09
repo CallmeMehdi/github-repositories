@@ -22,7 +22,7 @@ export default function UserContainer(props) {
     }, [props.username]);
 
 
-    const updateReposUrl = () => {
+    const updateReposUrl = (reposUrl) => {
         props.parentCallback(reposUrl);
     }
 
@@ -48,7 +48,7 @@ export default function UserContainer(props) {
         setReposUrl(reposUrl);
 
         // Updating the parent component with the reposUrl of the current user
-        updateReposUrl();
+        updateReposUrl(reposUrl);
 
 
     }

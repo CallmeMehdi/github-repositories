@@ -5,7 +5,6 @@ import {
     Text,
     Stack,
     Avatar,
-    useColorModeValue,
     Link 
 } from '@chakra-ui/react';
 import React, { useState, useEffect } from "react";
@@ -56,13 +55,6 @@ export default function User(props) {
                         <Text color={'gray.500'}>{followers} Followers · {following} Following </Text>
                     </Stack>
                 </Stack>
-                {/* <Stack>
-                    <Text color={'gray.500'}>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                    </Text>
-                </Stack> */}
-
             </Box>
         </Center>
     );

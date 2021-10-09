@@ -17,6 +17,8 @@ function App() {
   }
 
   const handleReposUrlCallback = (childData) => {
+    console.log("#####")
+    console.log(childData)
     setReposUrl(childData)
   }
 
