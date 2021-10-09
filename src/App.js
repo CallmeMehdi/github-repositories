@@ -27,7 +27,7 @@ function App() {
           <SearchInput parentCallback={handleCallback} />
           <Flex justify="space-around" direction={["column", "column", "row", "row"]}>
             <UserContainer username={username} parentCallback={handleReposUrlCallback}/>
-            <RepositoryContainer reposUlr={reposUrl}/>
+            <RepositoryContainer reposUrl={reposUrl}/>
           </Flex>
         </ChakraProvider>
       </Box>

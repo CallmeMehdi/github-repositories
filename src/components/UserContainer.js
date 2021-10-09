@@ -33,7 +33,6 @@ export default function UserContainer(props) {
                     setUsers(res.data.items);
                 })
         }
-
     }
 
     const selectUser = (reposUrl, event) => {
@@ -67,7 +66,7 @@ export default function UserContainer(props) {
                 p={5}
                 minW={['80vw', '80vw', '30vw']}
                 spacing={8}
-                overflowY={'scroll'}>
+                overflowY={'auto'}>
                 {
                     users.length ? (
                         users.map(user => <div onClick={(e) => { selectUser(user.repos_url, e)}}><User user={user} /><hr/></div>)
