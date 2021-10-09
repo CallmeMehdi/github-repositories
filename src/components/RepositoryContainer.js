@@ -32,7 +32,7 @@ export default function RepositoryContainer(props) {
   return (
     <Flex
       minH={'90vh'}
-      py={12}
+      py={8}
       bg="#F5F5F5"
       mx="auto">
       <Stack

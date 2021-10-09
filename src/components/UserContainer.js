@@ -2,7 +2,8 @@ import {
     Flex,
     Stack,
     useColorModeValue,
-    Box
+    Box,
+    Text
 } from '@chakra-ui/react';
 import User from './User';
 import axios from 'axios';
@@ -36,13 +37,13 @@ export default function UserContainer(props) {
     }
 
     const selectUser = (reposUrl, event) => {
-        
+
         // Check if there is an active user and remove that id
         if (document.querySelector("#active-user"))
             document.querySelector("#active-user").removeAttribute('id');
-        
+
         // Add active-user id to the selected element
-        event.currentTarget.querySelector("div").setAttribute('id','active-user');
+        event.currentTarget.querySelector("div").setAttribute('id', 'active-user');
 
         // Adding repos_url to the state
         setReposUrl(reposUrl);
@@ -56,9 +57,10 @@ export default function UserContainer(props) {
     return (
         <Flex
             h={'90vh'}
-            py={12}
+            py={8}
             bg="#F5F5F5"
             mx="auto">
+            
             <Stack
                 boxShadow={'2xl'}
                 bg={useColorModeValue('white', 'gray.700')}
@@ -69,7 +71,7 @@ export default function UserContainer(props) {
                 overflowY={'auto'}>
                 {
                     users.length ? (
-                        users.map(user => <div onClick={(e) => { selectUser(user.repos_url, e)}}><User user={user} /><hr/></div>)
+                        users.map(user => <div onClick={(e) => { selectUser(user.repos_url, e) }}><User user={user} /><hr /></div>)
                     ) : (
                         <Box display="flex" justifyContent="center">There are no users found.</Box>
                     )
