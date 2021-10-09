@@ -24,11 +24,11 @@ export default function User(props) {
                 setFollowers(res.data.length);
             })
 
-        // Setting up following variable
-        axios.get(props.user.following_url)
-            .then(res => {
-                setFollowing(res.data.length);
-            })
+        // // Setting up following variable
+        // axios.get(props.user.following_url)
+        //     .then(res => {
+        //         setFollowing(res.data.length);
+        //     })
     }, [])
 
 
@@ -52,7 +52,7 @@ export default function User(props) {
                     />
                     <Stack direction={'column'} spacing={0} fontSize={'sm'}>
                     <Link href={props.user.html_url} isExternal><Text fontWeight={600}>{props.user.login}</Text></Link>
-                        <Text color={'gray.500'}>{followers} Followers · {following} Following </Text>
+                        <Text color={'gray.500'}>{followers} Followers ·  </Text>
                     </Stack>
                 </Stack>
             </Box>
