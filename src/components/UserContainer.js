@@ -22,8 +22,8 @@ export default function UserContainer(props) {
     }, [props.username]);
 
 
-    const updateUsers = () => {
-        props.parentCallback(users);
+    const updateReposUrl = () => {
+        props.parentCallback(reposUrl);
     }
 
     const getUsers = (username) => {
@@ -31,7 +31,6 @@ export default function UserContainer(props) {
             axios.get('https://api.github.com/search/users?q=' + username + '&page=1&per_page=10')
                 .then(res => {
                     setUsers(res.data.items);
-                    updateUsers();
                 })
         }
 
@@ -48,6 +47,10 @@ export default function UserContainer(props) {
 
         // Adding repos_url to the state
         setReposUrl(reposUrl);
+
+        // Updating the parent component with the reposUrl of the current user
+        updateReposUrl();
+
 
     }
 

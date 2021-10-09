@@ -10,14 +10,14 @@ import React, {useState} from "react";
 function App() {
 
   const [username, setUsername] = useState("");
-  const [users, setUsers] = useState([]);
+  const [reposUrl, setReposUrl] = useState("");
 
   const handleCallback = (childData) => {
     setUsername(childData)
   }
 
-  const handleUsersCallback = (childData) => {
-    setUsers(childData)
+  const handleReposUrlCallback = (childData) => {
+    setReposUrl(childData)
   }
 
   return (
@@ -26,8 +26,8 @@ function App() {
         <ChakraProvider>
           <SearchInput parentCallback={handleCallback} />
           <Flex justify="space-around" direction={["column", "column", "row", "row"]}>
-            <UserContainer username={username} parentCallback={handleUsersCallback}/>
-            <RepositoryContainer />
+            <UserContainer username={username} parentCallback={handleReposUrlCallback}/>
+            <RepositoryContainer reposUlr={reposUrl}/>
           </Flex>
         </ChakraProvider>
       </Box>
