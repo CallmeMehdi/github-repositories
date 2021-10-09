@@ -38,7 +38,7 @@ export default function SearchInput(props) {
       <Input
         pr="4.5rem"
         type="text"
-        placeholder="Search for a GitHub username"
+        placeholder="Type a GitHub username"
         value={value}
         onChange={handleChange}
       />
