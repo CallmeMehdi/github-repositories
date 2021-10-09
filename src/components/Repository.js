@@ -12,21 +12,23 @@ import {
 export default function Repository(props) {
 
     return (
-        <Center style={{ transition: "0.4s", cursor: "pointer" }} mb={4} _hover={{
+        <Center style={{ transition: "0.4s", cursor: "pointer" }} mb={6} _hover={{
             background: "#F5F5F5",
-            transition: "0.4s"
+            transition: "0.4s",
+            boxShadow: '2xl'
         }}
+            boxShadow={'base'}
+            h="8rem"
             rounded={'md'}>
             <Box
                 maxW={'445px'}
                 w={'full'}
-                // boxShadow={'2xl'}
                 rounded={'md'}
                 p={6}
                 overflow={'hidden'}>
-                <Stack direction={'row'} spacing={4} align={'center'}>
+                <Stack direction={'row'} spacing={4} >
                     <div>
-                    {props.repo.name}
+                        {props.repo.name}
                     </div>
                 </Stack>
             </Box>

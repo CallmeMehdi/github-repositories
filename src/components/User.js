@@ -35,7 +35,8 @@ export default function User(props) {
     return (
         <Center style={{transition: "0.4s", cursor: "pointer"}} mb={4} _hover={{
             background: "#F5F5F5",
-            transition: "0.4s"
+            transition: "0.4s",
+            color: "#5fd1ba"
           }}
           rounded={'md'}>
             <Box
