@@ -27,7 +27,7 @@ export default function RepositoryContainer(props) {
   };
 
   return (
-    <Flex minH={"90vh"} py={8} bg="#F5F5F5" mx="auto">
+    <Flex style={{height: "90vh"}} py={8} bg="#F5F5F5" mx="auto">
       <Stack
         boxShadow={"2xl"}
         bg={useColorModeValue("white", "gray.700")}

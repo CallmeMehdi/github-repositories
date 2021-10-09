@@ -32,7 +32,7 @@ export default function Repository(props) {
   ];
 
   return (
-    <Center
+    <Stack
       style={{ transition: "0.4s", cursor: "pointer" }}
       mb={6}
       _hover={{
@@ -42,7 +42,6 @@ export default function Repository(props) {
         color: "#5fd1ba",
       }}
       boxShadow={"base"}
-      minH="8rem"
       rounded={"md"}
     >
       <Link href={props.repo.html_url} isExternal style={{ textDecoration: 'none' }}>
@@ -129,7 +128,7 @@ export default function Repository(props) {
                     alignItems="center"
                   >
                     <span>
-                      Last Updated at{" "}
+                      Updated On{" "}
                       {new Date(props.repo.updated_at).getDate()}{" "}
                       {monthNames[new Date(props.repo.updated_at).getMonth()]}
                     </span>
@@ -143,6 +142,6 @@ export default function Repository(props) {
           </Stack>
         </Box>
       </Link>
-    </Center>
+    </Stack>
   );
 }
