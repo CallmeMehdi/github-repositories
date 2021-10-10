@@ -51,6 +51,7 @@ function App() {
               color: "#5fd1ba",
               transition: "0.4s",
             }}
+            data-testid="home-title"
           >
             GitHub Repositories searcher
           </Text>

@@ -69,6 +69,7 @@ export default function RepositoryContainer(props) {
             type="text"
             placeholder="Filter repositories by name"
             onChange={filterRepos}
+            data-testid="search-repo"
           />
         </InputGroup>
         {filteredRepos.length ? (

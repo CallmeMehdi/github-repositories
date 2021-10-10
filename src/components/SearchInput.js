@@ -41,6 +41,7 @@ export default function SearchInput(props) {
         placeholder="Type a GitHub username"
         value={value}
         onChange={handleChange}
+        data-testid="search-user"
       />
       <InputRightElement width="5.5rem">
         <Button h="1.75rem" size="sm" onClick={updateUsername}>
