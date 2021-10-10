@@ -37,8 +37,8 @@ export default function RepositoryContainer(props) {
         boxShadow={"2xl"}
         bg={useColorModeValue("white", "gray.700")}
         rounded={"xl"}
-        p={10}
-        minW={["80vw", "80vw", "50vw"]}
+        p={[2,2,10,10]}
+        w={["80vw", "80vw", "50vw"]}
         spacing={8}
         overflowY={"auto"}
       >

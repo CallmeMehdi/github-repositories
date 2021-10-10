@@ -45,10 +45,10 @@ export default function Repository(props) {
       rounded={"md"}
     >
       <Link href={props.repo.html_url} isExternal style={{ textDecoration: 'none' }}>
-        <Box maxW={"445px"} w={"full"} rounded={"md"} p={6} overflow={"hidden"}>
+        <Box maxW={"445px"} w={"full"} rounded={"md"} p={[2,2,6,6]} overflow={"hidden"}>
           <Stack direction={"row"} spacing={4}>
             <div>
-              <Text fontSize={"20px"} fontWeight={600} mb={5}>
+              <Text fontSize={["14px","14px","20px","20px"]} fontWeight={600} mb={5}>
                 {props.repo.name}
               </Text>
 
@@ -60,7 +60,7 @@ export default function Repository(props) {
                   {props.repo.language ? (
                     <Text
                       m={3}
-                      fontSize={"14px"}
+                      fontSize={["10px","10px","14px","14px"]}
                       fontWeight={400}
                       display="flex"
                       alignItems="center"
@@ -74,7 +74,7 @@ export default function Repository(props) {
                   {props.repo.stargazers_count ? (
                     <Text
                       m={3}
-                      fontSize={"14px"}
+                      fontSize={["10px","10px","14px","14px"]}
                       fontWeight={400}
                       display="flex"
                       alignItems="center"
