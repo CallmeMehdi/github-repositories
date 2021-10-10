@@ -8,6 +8,8 @@ This is a React project that uses the GitHub API to showcase different GitHub us
 The main features are:
   - Searching for a user on GitHub
   - Searching in the selected user's repositories
+Demo:
+![Demo](https://s9.gifyu.com/images/demo_github.gif)
 
 ## Instructions on how to run it
 
