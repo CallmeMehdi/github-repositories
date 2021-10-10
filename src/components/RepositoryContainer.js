@@ -5,10 +5,12 @@ import {
   Box,
   InputGroup,
   Input,
+  InputLeftElement,
+  Icon,
 } from "@chakra-ui/react";
 import axios from "axios";
 import Repository from "./Repository";
-
+import { AiOutlineSearch } from "react-icons/ai";
 import React, { useEffect } from "react";
 
 /**
@@ -81,6 +83,7 @@ export default function RepositoryContainer(props) {
          * Respositories search bar
          */}
         <InputGroup size="md" bg="white">
+          <InputLeftElement children={<Icon as={AiOutlineSearch} />} />
           <Input
             pr="4.5rem"
             type="text"
