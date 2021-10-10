@@ -43,12 +43,30 @@ export default function Repository(props) {
       }}
       boxShadow={"base"}
       rounded={"md"}
+      flexFlow="wrap"
     >
-      <Link href={props.repo.html_url} isExternal style={{ textDecoration: 'none' }}>
-        <Box maxW={"445px"} w={"full"} rounded={"md"} p={[2,2,6,6]} overflow={"hidden"}>
+      <Link
+        href={props.repo.html_url}
+        isExternal
+        style={{ textDecoration: "none" }}
+        flexFlow="wrap"
+        w="100%"
+      >
+        <Box
+          maxW={"445px"}
+          w={"full"}
+          rounded={"md"}
+          p={[2, 2, 6, 6]}
+          overflow={"hidden"}
+          flexFlow="wrap"
+        >
           <Stack direction={"row"} spacing={4}>
-            <div>
-              <Text fontSize={["14px","14px","20px","20px"]} fontWeight={600} mb={5}>
+            <div style={{width: "100%", flexFlow: "wrap"}}>
+              <Text
+                fontSize={"20px"}
+                fontWeight={600}
+                mb={5}
+              >
                 {props.repo.name}
               </Text>
 
@@ -56,11 +74,11 @@ export default function Repository(props) {
                 {props.repo.description}
               </Text>
               {props.repo.language || props.repo.stargazers_count ? (
-                <Flex>
+                <Flex flexFlow="wrap">
                   {props.repo.language ? (
                     <Text
                       m={3}
-                      fontSize={["10px","10px","14px","14px"]}
+                      fontSize={"14px"}
                       fontWeight={400}
                       display="flex"
                       alignItems="center"
@@ -74,7 +92,7 @@ export default function Repository(props) {
                   {props.repo.stargazers_count ? (
                     <Text
                       m={3}
-                      fontSize={["10px","10px","14px","14px"]}
+                      fontSize={"14px"}
                       fontWeight={400}
                       display="flex"
                       alignItems="center"
@@ -128,8 +146,7 @@ export default function Repository(props) {
                     alignItems="center"
                   >
                     <span>
-                      Updated On{" "}
-                      {new Date(props.repo.updated_at).getDate()}{" "}
+                      Updated On {new Date(props.repo.updated_at).getDate()}{" "}
                       {monthNames[new Date(props.repo.updated_at).getMonth()]}
                     </span>
                   </Text>
