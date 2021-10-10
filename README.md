@@ -1,6 +1,6 @@
 # GitHub Repositories searcher
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is deployed at [https://github-repositories-navy.vercel.app/](https://github-repositories-navy.vercel.app/).
 
 ## Short description about the project
 
