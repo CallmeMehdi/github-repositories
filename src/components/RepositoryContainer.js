@@ -1,4 +1,11 @@
-import { Flex, Stack, useColorModeValue, Box, InputGroup, Input } from "@chakra-ui/react";
+import {
+  Flex,
+  Stack,
+  useColorModeValue,
+  Box,
+  InputGroup,
+  Input,
+} from "@chakra-ui/react";
 import axios from "axios";
 import Repository from "./Repository";
 
@@ -15,30 +22,35 @@ export default function RepositoryContainer(props) {
     } else {
       getRepos(props.reposUrl);
     }
-    setFilteredRepos(repos)
   }, [props.reposUrl, props.refresh]);
 
   const getRepos = (reposUrl) => {
     if (reposUrl) {
       axios.get(reposUrl).then((res) => {
+        // Adding to total repositories
         setRepos(
           Array.from(res.data).sort((a, b) =>
             a.updated_at < b.updated_at ? 1 : -1
           )
         );
-        console.log(res.data);
+
+        // Adding to filtered repos
+        setFilteredRepos(
+          Array.from(res.data).sort((a, b) =>
+            a.updated_at < b.updated_at ? 1 : -1
+          )
+        );
+
         // setRepos(res.data);
       });
     }
   };
 
   const filterRepos = (event) => {
-    let regexp = new RegExp('^' + event.target.value)
+    let regexp = new RegExp("^" + event.target.value);
 
-    console.log(event.target.value)
-    console.log(repos.filter((repo) => repo.name.match(regexp)))
-    setFilteredRepos(repos.filter((repo) => repo.name.match(regexp)))
-  }
+    setFilteredRepos(repos.filter((repo) => repo.name.match(regexp)));
+  };
 
   return (
     <Flex style={{ height: "90vh" }} py={8} bg="#F5F5F5" mx="auto">
