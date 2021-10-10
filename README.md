@@ -11,6 +11,7 @@ The main features are:
 
 
 Demo:
+
 ![Demo](https://s9.gifyu.com/images/demo_github.gif)
 
 ## Instructions on how to run it
