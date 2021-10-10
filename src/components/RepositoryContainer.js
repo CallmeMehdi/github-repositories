@@ -27,6 +27,7 @@ export default function RepositoryContainer(props) {
   useEffect(() => {
     if (props.refresh) {
       setRepos([]);
+      setFilteredRepos(repos)
       props.parentCallback();
     } else {
       getRepos(props.reposUrl);
