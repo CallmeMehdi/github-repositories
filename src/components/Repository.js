@@ -15,7 +15,12 @@ import "../assets/github-lang-colors.css";
 import { AiFillStar, AiOutlineFork } from "react-icons/ai";
 import { FaBalanceScale } from "react-icons/fa";
 
+/**
+ * Repository component
+ * @param {Object} props containing the property repo that has the repository object returned from the GitHub API
+ */
 export default function Repository(props) {
+  
   const monthNames = [
     "Jan",
     "Feb",

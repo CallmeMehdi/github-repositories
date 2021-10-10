@@ -6,6 +6,12 @@ import React, { useEffect } from "react";
 
 import "../assets/stylesheet.css";
 
+/**
+ * UserContainer section for listing users
+ * @param {Object} props arguments passed in as props like:
+ *    username: the username searched for
+ *    parentCallback: function that updates the repository URL
+ */
 export default function UserContainer(props) {
   const [users, setUsers] = React.useState([]);
 
@@ -15,10 +21,18 @@ export default function UserContainer(props) {
     getUsers(props.username);
   }, [props.username]);
 
+  /**
+   * Function that updates the reposUrl to the parent component
+   * @param {string} reposUrl repositories api endpoint string
+   */
   const updateReposUrl = (reposUrl) => {
     props.parentCallback(reposUrl);
   };
 
+  /**
+   * Function that gets all users that start with username
+   * @param {string} username username to search for
+   */
   const getUsers = (username) => {
     if (username) {
       axios
@@ -33,6 +47,12 @@ export default function UserContainer(props) {
     }
   };
 
+  /**
+   * Function that selects a certain user making it active (css)
+   * and adding the user's repositories url and updating the parent component
+   * @param {string} reposUrl repositories api endpoint string
+   * @param {Event} event event of the user click, we need the event.currenTarget which is the selected user element
+   */
   const selectUser = (reposUrl, event) => {
     // Check if there is an active user and remove that id
     if (document.querySelector("#active-user"))
@@ -59,6 +79,9 @@ export default function UserContainer(props) {
         spacing={8}
         overflowY={"auto"}
       >
+        {/**
+         * Mapping all Users
+         */}
         {users.length ? (
           users.map((user) => (
             <div

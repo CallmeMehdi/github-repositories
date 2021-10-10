@@ -10,6 +10,10 @@ import {
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+/**
+ * User component
+ * @param {Object} props containing the property user that has the user object returned from the GitHub API
+ */
 export default function User(props) {
   const [followers, setFollowers] = React.useState(0);
 
@@ -20,12 +24,6 @@ export default function User(props) {
     axios.get(props.user.followers_url).then((res) => {
       setFollowers(res.data.length);
     });
-
-    // // Setting up following variable
-    // axios.get(props.user.following_url)
-    //     .then(res => {
-    //         setFollowing(res.data.length);
-    //     })
   }, []);
 
   return (
